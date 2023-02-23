@@ -9,6 +9,9 @@ import Login from "./pages/Login";
 import AddMedbox from "./pages/AddMedbox";
 import ListMedbox from "./pages/ListMedbox";
 import MedboxDetail from "./pages/MedboxDetail";
+import LandingPage from "./pages/Landingpage";
+
+
 
 
 function App() {
@@ -17,8 +20,8 @@ function App() {
       <ToastContainer />
       <Navbar1 />
       <Routes>
-        <Route path="/" element={<ListMedbox />} />
-        <Route path="/medbox" element={<ListMedbox />} />
+        <Route path="/" element={<LandingPage/>} />
+        <Route path="/medbox" element={<ListMedbox/>} />
         <Route
           path="/medbox/add"
           element={
