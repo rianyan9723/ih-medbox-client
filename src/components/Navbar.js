@@ -29,7 +29,7 @@ function Navbar1() {
               <Nav.Link href="/">Home</Nav.Link>
               {loggedUser ? (
                 <>
-                <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text>
+                {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
             <Button onClick={logout}>Logout</Button> </>
         ) : (
           <>
