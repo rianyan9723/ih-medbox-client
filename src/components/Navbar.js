@@ -6,17 +6,16 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 function Navbar1() {
 
   const { loggedUser, logout } = useContext(UserContext);
 
-
+  console.log(loggedUser)
   return (
     <>
-    <Navbar bg="light" variant="light">
+      <Navbar bg="light" variant="light">
         <Container fluid>
           <Navbar.Brand href="/">Amazing MedBox website </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -29,14 +28,16 @@ function Navbar1() {
               <Nav.Link href="/">Home</Nav.Link>
               {loggedUser ? (
                 <>
-                <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text>
-            <Button onClick={logout}>Logout</Button> </>
-        ) : (
-          <>
-          <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signup">Register</Nav.Link>
-          </>
-        )}
+                  {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
+                  <Nav.Link href="/medbox/add"> Add Medbox</Nav.Link>
+                  <Button onClick={logout}>Logout</Button> </>
+              ) : (
+                <>
+                  <Nav.Link href="/medbox/add"> Add Medbox</Nav.Link>
+                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Nav.Link href="/signup">Register</Nav.Link>
+                </>
+              )}
             </Nav>
             <Form className="d-flex">
               <Form.Control

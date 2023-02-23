@@ -39,19 +39,19 @@ function AddMedbox() {
     setExpirydate(event.target.value);
   }
 
-  function handleImageSelect(event) {
-    setImage(event.target.files[0]);
-  }
+  // function handleImageSelect(event) {
+  //   setImage(event.target.files[0]);
+  // }
 
   async function handleSubmitForm(event) {
     event.preventDefault();
     console.log({ name, quantity, usage, expiryDate });
 
     //1. Upload the image through the backend
-    const uploadData = new FormData();
-    uploadData.append("filename", image);
-    const response = await uploadImage(uploadData);
-    console.log("response from BE with image Url", response.data);
+    // const uploadData = new FormData();
+    // uploadData.append("filename", image);
+    // const response = await uploadImage(uploadData);
+    // console.log("response from BE with image Url", response.data);
 
     //2. Once we get the imageUrl -> create a project
     //with title, description and imageUrl

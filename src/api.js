@@ -14,7 +14,7 @@ export const deleteMedbox = (id) => {
 };
 
 export const createMedbox = (medbox) => {
-  return axios.post(`${BASE_URL}/medbox`, medbox, {
+  return axios.post(`${BASE_URL}/medbox/add`, medbox, {
     headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
   });
 };
@@ -32,6 +32,7 @@ export const signup = (user) => {
 };
 
 export const verify = (token) => {
+  console.log(token)
   return axios.get(`${BASE_URL}/verify`, {
     headers: { Authorization: `Bearer ${token}` },
   });

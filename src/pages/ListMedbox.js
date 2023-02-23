@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAllMedbox } from "../api";
+import Button from 'react-bootstrap/Button';
 
 function ListMedbox() {
   const [medbox, setMedbox] = useState([]);
+  const navigate = useNavigate();
+  
+  const seeDetails = () => {
+    let path = `/medbox/${medbox._id}`
+    navigate(path);
+  }
 
   useEffect(() => {
     async function handleGetAllMedbox() {
@@ -15,22 +22,18 @@ function ListMedbox() {
 
   return (
     <div>
-      <h2>Your Medbox</h2>
-      <ul>
+      <ul style={{ listStyle: "none" }}>
+        <h2>Your Medbox</h2>
         {medbox.map((medbox) => {
           return (
-            <li key={medbox._id}>
-              <Link to={`/medbox/${medbox._id}`}>
-                <h3>{medbox.title}</h3>
-              </Link>
-              {medbox.imageUrl && (
-                <img
-                  style={{ width: "20%" }}
-                  src={medbox.imageUrl}
-                  alt="medbox"
-                />
-              )}
-            </li>
+            <>
+              <li>{medbox.name}</li>
+              <li>{medbox.quantity}</li>
+              <li>{medbox.usage}</li>
+              <li>{medbox.expiryDate}</li>
+              <br />
+              <Button onClick={seeDetails}>See Details </Button>
+            </>
           );
         })}
       </ul>

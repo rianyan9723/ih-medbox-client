@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import IsPrivate from "./components/IsPrivate";
+// import IsPrivate from "./components/IsPrivate";
 import AddMedbox from "./pages/AddMedbox";
 import ListMedbox from "./pages/ListMedbox";
 import MedboxDetail from "./pages/MedboxDetail";
@@ -22,9 +22,9 @@ function App() {
         <Route
           path="/medbox/add"
           element={
-            <IsPrivate>
+            // <IsPrivate>
             <AddMedbox></AddMedbox>
-            </IsPrivate>
+            // </IsPrivate>
           }
         />
 

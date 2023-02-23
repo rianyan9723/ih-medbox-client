@@ -8,10 +8,11 @@ function UserProviderWrapper({ children }) {
 
   async function authenticateUser() {
     const storedToken = localStorage.getItem("authToken");
-
     if (storedToken) {
       try {
         const response = await verify(storedToken);
+        console.log(response)
+
         setLoggedUser(response.data);
       } catch (e) {
         setLoggedUser(null);
