@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import AddMedbox from "./pages/AddMedbox";
 import ListMedbox from "./pages/ListMedbox";
 import MedboxDetail from "./pages/MedboxDetail";
-import LandingPage from "./pages/Landingpage";
+import LandingPage from "./pages/LandingPage";
 
 
 
