@@ -26,9 +26,12 @@ function Navbar1() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
+            
+
               {loggedUser ? (
                 <>
                 {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
+                <Nav.Link href="/medbox/add">Add MedBox</Nav.Link>
             <Button onClick={logout}>Logout</Button> </>
         ) : (
           <>
@@ -37,6 +40,7 @@ function Navbar1() {
           </>
         )}
             </Nav>
+
             <Form className="d-flex">
               <Form.Control
                 type="search"
@@ -45,9 +49,12 @@ function Navbar1() {
                 aria-label="Search" />
               <Button variant="outline-success">Search</Button>
             </Form>
+            
           </Navbar.Collapse>
         </Container>
-      </Navbar></>
+      </Navbar>
+      
+      </>
 
   );
 }
