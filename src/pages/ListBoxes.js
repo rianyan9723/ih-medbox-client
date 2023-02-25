@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllMedbox } from "../api";
+import { getAllBoxes } from "../api";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function ListMedbox() {
-  const [medbox, setMedbox] = useState([]);
+function ListBoxes() {
+  const [box, setBox] = useState([]);
   const navigate = useNavigate();
 
   const seeDetails = () => {
-    let path = `/medbox/${medbox._id}`
+    let path = `/medication/${box._id}`
     navigate(path);
   }
 
   useEffect(() => {
-    async function handleGetAllMedbox() {
-      const response = await getAllMedbox();
-      setMedbox(response.data);
+    async function handleGetAllBoxes() {
+      const response = await getAllBoxes();
+      setBox(response.data);
     }
-    handleGetAllMedbox();
+    handleGetAllBoxes();
   }, []);
 
   return (
@@ -27,12 +27,12 @@ function ListMedbox() {
       <br></br>
       <br></br>
 
-      <h2>Welcome to your Medbox!</h2>
+      <h2>Welcome Medvice!</h2>
 
       <br></br>
       <br></br>
 
-      <h4>Here is our recommended Home medicine box</h4>
+      <h4>Our suggestions to keep in stock:</h4>
 
       <br></br>
       <br></br>
@@ -95,14 +95,14 @@ function ListMedbox() {
       <br></br>
       <br></br>
 
-      <h5>Check the medicine you just created below</h5>
+      <h5>You can check the medicine boxes you created below</h5>
 
       <br></br>
       <br></br>
 
 
     </div><ul style={{ listStyle: "none" }}>
-        {medbox.map((medbox) => {
+        {box.map((box) => {
           return (
             <>
 
@@ -111,11 +111,11 @@ function ListMedbox() {
                   <Card className="h-100">
                     <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                      <Card.Title>{medbox.name}</Card.Title>
+                      <Card.Title>{box.name}</Card.Title>
                       <Card.Text>
-                        Quantity: {medbox.quantity} <br></br>
-                        Usage: {medbox.usage} <br></br>
-                        Expiration Date: {medbox.expiryDate} <br></br>
+                        Quantity: {box.quantity} <br></br>
+                        Usage: {box.usage} <br></br>
+                        Expiration Date: {box.expiryDate} <br></br>
                       </Card.Text>
                       <Button variant="primary" onClick={seeDetails} >See Details</Button>
                     </Card.Body>
@@ -130,4 +130,4 @@ function ListMedbox() {
   );
 }
 
-export default ListMedbox;
+export default ListBoxes;

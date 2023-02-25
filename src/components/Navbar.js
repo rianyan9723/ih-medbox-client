@@ -17,7 +17,7 @@ function Navbar1() {
     <>
       <Navbar bg="light" variant="light">
         <Container fluid>
-          <Navbar.Brand href="/">Amazing MedBox website </Navbar.Brand>
+          <Navbar.Brand href="/"><img src="/medvicelogo.png" alt="medvice-logo" style={{width:"45px"}}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -28,14 +28,16 @@ function Navbar1() {
               <Nav.Link href="/">Home</Nav.Link>
               {loggedUser ? (
                 <>
-                {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
-            <Button onClick={logout}>Logout</Button> </>
-        ) : (
-          <>
-          <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/signup">Register</Nav.Link>
-          </>
-        )}
+                  {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
+                  <Nav.Link href="/medvice">My Area</Nav.Link>
+                  <Nav.Link href="/medication/add">Add new meds</Nav.Link>
+                  <Button onClick={logout}>Logout</Button> </>
+              ) : (
+                <>
+                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Nav.Link href="/signup">Register</Nav.Link>
+                </>
+              )}
             </Nav>
             <Form className="d-flex">
               <Form.Control

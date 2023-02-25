@@ -30,7 +30,7 @@ function Login() {
       //Setting the logged user in the context
       authenticateUser();
       toast.success("User logged in");
-      navigate("/medbox");
+      navigate("/medication");
     } catch (e) {
       console.log(e)
       toast.error(`Invalid login`);
