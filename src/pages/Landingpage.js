@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 
-function LandingPage() {
   return (
     <>
 
@@ -100,4 +99,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default ListBoxes;

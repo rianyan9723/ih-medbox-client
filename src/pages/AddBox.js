@@ -1,27 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { createMedbox, uploadImage } from "../api";
+import { createBox, uploadImage } from "../api";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import axios from "axios";
+import { Button } from "react-bootstrap";
 
-const Button = styled.button`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid green;
-  color: green;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  cursor: pointer;
-`;
-
-function AddMedbox() {
+function AddBox() {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(0);
   const [usage, setUsage] = useState("");
-  const [expiryDate, setExpirydate] = useState(null);
+  const [expiryDate, setExpirydate] = useState('');
   const [image, setImage] = useState(null);
-
+  const [searchInput, setSearchInput] = useState("");
+  // const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
+
+
+
+  // const searchUsage = async (searchTerm) => {
+  //   try {
+  //     const response = await axios.post("/search", { searchTerm });
+  //     setSearchResults(response.data.results[0].dosage_and_administration);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -37,6 +42,10 @@ function AddMedbox() {
 
   function handleExpirydateChange(event) {
     setExpirydate(event.target.value);
+  }
+
+  function handleSearchInputChange(event) {
+    setSearchInput(event.target.value);
   }
 
   // function handleImageSelect(event) {
@@ -55,17 +64,17 @@ function AddMedbox() {
 
     //2. Once we get the imageUrl -> create a project
     //with title, description and imageUrl
-    await createMedbox({
+    await createBox({
       name,
       quantity,
       usage,
       expiryDate
     });
     // imageUrl: response.data.fileUrl,
-    
-    toast.success("Medbox created!");
 
-    navigate("/");
+    toast.success("New box created!");
+
+    navigate("/medvice");
   }
 
   return (
@@ -84,14 +93,22 @@ function AddMedbox() {
         value={quantity}
         onChange={handleQuantityChange}
       />
-           <label htmlFor="usage">Usage</label>
+      <label htmlFor="usage">Usage</label>
       <input
         id="usage"
         type="text"
         value={usage}
         onChange={handleUsageChange}
       />
-           <label htmlFor="expiry-date">Expiration Date</label>
+      {/* <div>
+        {searchResults.map((result) => (
+          <div key={result.id}>
+            <h2>Dosage and Administration</h2>
+            <p>{result}</p>
+          </div>
+        ))}
+      </div> */}
+      <label htmlFor="expiry-date">Expiration Date</label>
       <input
         id="expiry-date"
         type="date"
@@ -99,12 +116,12 @@ function AddMedbox() {
         onChange={handleExpirydateChange}
       />
       <Button className="button" type="submit">
-        Create Medbox
+        Create new box
       </Button>
     </form>
   );
 }
-      // <label htmlFor="image">Image</label>
-      // <input id="image" type="file" onChange={handleImageSelect} />
+// <label htmlFor="image">Image</label>
+// <input id="image" type="file" onChange={handleImageSelect} />
 
-export default AddMedbox;
+export default AddBox;

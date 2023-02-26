@@ -6,10 +6,10 @@ import { ToastContainer } from "react-toastify";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 // import IsPrivate from "./components/IsPrivate";
-import AddMedbox from "./pages/AddMedbox";
-import ListMedbox from "./pages/ListMedbox";
-import MedboxDetail from "./pages/MedboxDetail";
-import LandingPage from "./pages/Landingpage";
+import AddBox from "./pages/AddBox";
+import ListBoxes from "./pages/ListBoxes";
+import MedicationDetail from "./pages/MedicationDetail";
+import LandingPage from "./pages/LandingPage";
 
 
 
@@ -21,17 +21,13 @@ function App() {
       <Navbar1 />
       <Routes>
         <Route path="/" element={<LandingPage/>} />
-        <Route path="/medbox" element={<ListMedbox/>} />
+        <Route path="/medvice" element={<ListBoxes/>} />
         <Route
-          path="/medbox/add"
-          element={
-            // <IsPrivate>
-            <AddMedbox></AddMedbox>
-            // </IsPrivate>
-          }
+          path="/medication/add"
+          element={<AddBox/>}
         />
 
-        <Route path="/medbox/:medboxID" element={<MedboxDetail />} />
+        <Route path="/medication/:boxID" element={<MedicationDetail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
@@ -39,5 +35,7 @@ function App() {
     </div>
   );
 }
+// <IsPrivate>
+// </IsPrivate>
 
 export default App;

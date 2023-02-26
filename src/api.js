@@ -1,20 +1,20 @@
 import axios from "axios";
-const BASE_URL = `${process.env.REACT_APP_MEDBOX_API}/api`;
+const BASE_URL = `${process.env.REACT_APP_BOX_API}/api`;
 
-export const getAllMedbox = () => {
-  return axios.get(`${BASE_URL}/medbox`);
+export const getAllBoxes = () => {
+  return axios.get(`${BASE_URL}/medvice`);
 };
 
-export const getMedbox = (id) => {
-  return axios.get(`${BASE_URL}/medbox/${id}`);
+export const getBox = (id) => {
+  return axios.get(`${BASE_URL}/medication/${id}`);
 };
 
-export const deleteMedbox = (id) => {
-  return axios.delete(`${BASE_URL}/medbox/${id}`);
+export const deleteBox = (id) => {
+  return axios.delete(`${BASE_URL}/medication/${id}`);
 };
 
-export const createMedbox = (medbox) => {
-  return axios.post(`${BASE_URL}/medbox/add`, medbox, {
+export const createBox = (box) => {
+  return axios.post(`${BASE_URL}/medication/add`, box, {
     headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
   });
 };
