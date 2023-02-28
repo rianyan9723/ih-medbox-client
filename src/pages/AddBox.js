@@ -6,7 +6,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { searchUsage } from "../api";
-import Autocomplete from "react-autocomplete";
+//import Autocomplete from "react-autocomplete";
 
 
 function AddBox() {
@@ -98,7 +98,7 @@ function AddBox() {
         value={usage}
         onChange={handleUsageChange}
       />
-      <Autocomplete
+      {/* <Autocomplete
         getItemValue={(item) => item.label}
         items={[
           { label: 'apple' },
@@ -113,7 +113,7 @@ function AddBox() {
         value={value}
         onChange={(e) => value = e.target.value}
         onSelect={(val) => value = val}
-      />
+      /> */}
       <div>
         {searchResults.map((result) => (
           <div key={result.id}>
