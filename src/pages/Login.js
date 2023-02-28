@@ -57,55 +57,7 @@ function Login() {
 
 
     <>
-    <div className = "body-login">
-
-    <br></br>
-
-      <form onSubmit={handleSubmitForm}>
-        <h4>Log in</h4>
-        <br></br>
-        <div className="mb-3">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            placeholder="Enter password"
-            onChange={handlePasswordChange}
-
-          />
-        </div>
-        <div className="mb-3">
-          <div className="custom-control custom-checkbox">
-            <input
-              type="checkbox"
-              className="custom-control-input"
-              id="customCheck1"
-            />
-            <label className="custom-control-label" htmlFor="customCheck1">
-              Remember me
-            </label>
-          </div>
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </div>
-        <p className="forgot-password text-right">
-          Don't have an account? <Link to="/signup">Sign up here</Link>
-        </p>
-      </form> 
+    
 
 <MDBContainer fluid>
 
@@ -165,7 +117,7 @@ function Login() {
 
 </MDBContainer>
 
-</div>
+
 
 
 

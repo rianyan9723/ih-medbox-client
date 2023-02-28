@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { createBox, uploadImage } from "../api";
+import { createBox } from "../api";
 import { toast } from "react-toastify";
-import styled from "styled-components";
-import axios from "axios";
 import { Button } from "react-bootstrap";
 import { searchUsage } from "../api";
 //import Autocomplete from "react-autocomplete";
