@@ -25,6 +25,8 @@ function Navbar1() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
+            
+
               {loggedUser ? (
                 <>
                   {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
@@ -40,7 +42,9 @@ function Navbar1() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar></>
+      </Navbar>
+      
+      </>
 
   );
 }
