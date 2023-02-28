@@ -3,7 +3,6 @@ import { UserContext } from "../context/user.context";
 import { useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -29,7 +28,7 @@ function Navbar1() {
               {loggedUser ? (
                 <>
                   {/* <Navbar.Text>Welcome {loggedUser.email}</Navbar.Text> */}
-                  <Nav.Link href="/medvice">My Area</Nav.Link>
+                  <Nav.Link href="/medication">My Area</Nav.Link>
                   <Nav.Link href="/medication/add">Add new meds</Nav.Link>
                   <Button onClick={logout}>Logout</Button> </>
               ) : (
@@ -39,14 +38,6 @@ function Navbar1() {
                 </>
               )}
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar></>

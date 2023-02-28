@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllBoxes } from "../api";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
 
 function ListBoxes() {
   const [box, setBox] = useState([]);
@@ -97,9 +98,16 @@ function ListBoxes() {
 
       <h5>You can check the medicine boxes you created below</h5>
 
+      <br></br> 
       <br></br>
-      <br></br>
-
+      <Form className="d-flex" style={{width:"30%"}}>
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search" />
+              <Button variant="outline-success">Search</Button>
+            </Form>
 
     </div><ul style={{ listStyle: "none" }}>
         {box.map((box) => {

@@ -21,7 +21,7 @@ function App() {
       <Navbar1 />
       <Routes>
         <Route path="/" element={<LandingPage/>} />
-        <Route path="/medvice" element={<ListBoxes/>} />
+        <Route path="/medication" element={<ListBoxes/>} />
         <Route
           path="/medication/add"
           element={<AddBox/>}
