@@ -101,32 +101,47 @@ function ListBoxes() {
       <br></br>
 
 
-    </div><ul style={{ listStyle: "none" }}>
-        {box.map((box) => {
-          return (
-            <>
+    </div>
+    
+    <ul style={{ listStyle: "none" }}>
 
-              <div className="row justify-content-center">
-                <div className="col-md-3 mb-4">
-                  <Card className="h-100">
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                      <Card.Title>{box.name}</Card.Title>
-                      <Card.Text>
-                        Quantity: {box.quantity} <br></br>
-                        Usage: {box.usage} <br></br>
-                        Expiration Date: {box.expiryDate} <br></br>
-                      </Card.Text>
-                      <Button variant="primary" onClick={seeDetails} >See Details</Button>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </ul></>
+         
 
+  <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+  {box.map((box) => (
+    <Card style={{ width: '18rem', margin: '1rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Body>
+        <Card.Title>{box.name}</Card.Title>
+        <Card.Text>
+          Quantity: {box.quantity} <br />
+          Usage: {box.usage} <br />
+          Expiration Date: {box.expiryDate} <br />
+        </Card.Text>
+        <Button variant="primary" onClick={seeDetails} >See Details</Button>
+      </Card.Body>
+    </Card>
+  ))}
+</div>
+          
+</ul>
+
+<br></br>
+<br></br>
+
+<Card className="text-center">
+      <Card.Header>Featured</Card.Header>
+      <Card.Body>
+        <Card.Title>Special title treatment</Card.Title>
+        <Card.Text>
+          With supporting text below as a natural lead-in to additional content.
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+      <Card.Footer className="text-muted">2 days ago</Card.Footer>
+    </Card>
+      </>
+  
   );
 }
 
