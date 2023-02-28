@@ -48,28 +48,7 @@ function Signup() {
 
   return (
     <><>
-      <h3>Signup</h3>
-      <form onSubmit={handleSubmitForm}>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="text"
-          value={email}
-          onChange={handleEmailChange} />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          value={password}
-          type="password"
-          onChange={handlePaswordChange} />
-
-        <button type="submit">Sign up</button>
-      </form>
-      <p>Already have an account?</p>
-      <Link to="/login">Login</Link>
-
-
-
+      
     </>
     
     <MDBContainer fluid className='p-4'>
@@ -107,36 +86,33 @@ function Signup() {
                 </MDBCol>
               </MDBRow>
 
-              <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-              <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+              <MDBInput 
+              wrapperClass='mb-4' 
+              label='Email' 
+              id='form1' 
+              type='email'
+              value={email}
+              onChange={handleEmailChange} 
+              />
+
+              <MDBInput 
+              wrapperClass='mb-4' 
+              label='Password' 
+              id='form1' 
+              value={password}
+              type="password"
+              onChange={handlePaswordChange}
+              />
 
               <div className='d-flex justify-content-center mb-4'>
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
 
+              <form onSubmit={handleSubmitForm}>
               <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+              </form>
 
-              <div className="text-center">
-
-                <p>or sign up with:</p>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='facebook-f' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='twitter' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='google' size="sm"/>
-                </MDBBtn>
-
-                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                  <MDBIcon fab icon='github' size="sm"/>
-                </MDBBtn>
-
-              </div>
+              
 
             </MDBCardBody>
           </MDBCard>
