@@ -37,3 +37,8 @@ export const verify = (token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
+export const searchUsage = (searchTerm) => {
+  return axios.post("/search", { searchTerm });
+}
+
