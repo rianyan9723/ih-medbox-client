@@ -100,6 +100,8 @@ function ListBoxes() {
 
       <br></br> 
       <br></br>
+
+
       <Form className="d-flex" style={{width:"30%"}}>
               <Form.Control
                 type="search"
@@ -107,16 +109,16 @@ function ListBoxes() {
                 className="me-2"
                 aria-label="Search" />
               <Button variant="outline-success">Search</Button>
-            </Form>
+      </Form> 
 
     </div>
     
-    <ul style={{ listStyle: "none" }}>
+  
 
-         
+  <ul style={{ listStyle: "none" }}>  
 
   <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
-  {box.map((box) => (
+  {box.length > 0 ? (box.map((box) => (
     <Card style={{ width: '18rem', margin: '1rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
@@ -129,10 +131,10 @@ function ListBoxes() {
         <Button variant="primary" onClick={seeDetails} >See Details</Button>
       </Card.Body>
     </Card>
-  ))}
-</div>
-          
+  ))) : (<>Loading...</>)}
+</div>  
 </ul>
+
 
 <br></br>
 <br></br>
