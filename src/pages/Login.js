@@ -76,7 +76,7 @@ function Login() {
         wrapperClass='mb-4 mx-5 w-100' 
         labelClass='text-white' 
         label='Email address' 
-        id='formControlLg' 
+        id='email' 
         type='email' 
         size="lg"
         value={email}
@@ -87,7 +87,7 @@ function Login() {
         wrapperClass='mb-4 mx-5 w-100' 
         labelClass='text-white' 
         label='Password' 
-        id='formControlLg' 
+        id='password' 
         type='password' 
         size="lg"
         value={password}

@@ -13,7 +13,7 @@ import {
   MDBCol,
   MDBCheckbox
 }
-from 'mdb-react-ui-kit';
+  from 'mdb-react-ui-kit';
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -47,81 +47,54 @@ function Signup() {
 
   return (
     <><>
-      
+
     </>
-    
-    <MDBContainer fluid className='p-4'>
 
-      <MDBRow>
+      <MDBContainer fluid className='p-4'>
 
-        <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
+        <MDBRow>
 
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-            The best offer <br />
-            <span className="text-primary">for your business</span>
-          </h1>
+          <MDBCol md='6'>
 
-          <p className='px-3' style={{color: 'hsl(217, 10%, 50.8%)'}}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-            quibusdam tempora at cupiditate quis eum maiores libero
-            veritatis? Dicta facilis sint aliquid ipsum atque?
-          </p>
+            <MDBCard className='my-5'>
+              <MDBCardBody className='p-5'>
 
-        </MDBCol>
+                <form onSubmit={handleSubmitForm}>
 
-        <MDBCol md='6'>
+                  <MDBInput
+                    wrapperClass='mb-4'
+                    label='Email'
+                    id='email'
+                    type='email'
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
 
-          <MDBCard className='my-5'>
-            <MDBCardBody className='p-5'>
+                  <MDBInput
+                    wrapperClass='mb-4'
+                    label='Password'
+                    id='password'
+                    value={password}
+                    type="password"
+                    onChange={handlePaswordChange}
+                  />
 
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-                </MDBCol>
 
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
-                </MDBCol>
-              </MDBRow>
 
-              <MDBInput 
-              wrapperClass='mb-4' 
-              label='Email' 
-              id='form1' 
-              type='email'
-              value={email}
-              onChange={handleEmailChange} 
-              />
+                  <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+                </form>
 
-              <MDBInput 
-              wrapperClass='mb-4' 
-              label='Password' 
-              id='form1' 
-              value={password}
-              type="password"
-              onChange={handlePaswordChange}
-              />
 
-              <div className='d-flex justify-content-center mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-              </div>
 
-              <form onSubmit={handleSubmitForm}>
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-              </form>
+              </MDBCardBody>
+            </MDBCard>
 
-              
+          </MDBCol>
 
-            </MDBCardBody>
-          </MDBCard>
+        </MDBRow>
 
-        </MDBCol>
-
-      </MDBRow>
-
-    </MDBContainer>
-      </>
+      </MDBContainer>
+    </>
 
 
   );
