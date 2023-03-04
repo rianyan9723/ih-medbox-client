@@ -10,11 +10,11 @@ function LandingPage() {
     <>
 
     <div className="header">
-       <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671134695/39608_vdtwbt.jpg" alt="Header Image" /> 
+       <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1677791674/hal-gatewood-_jbClosDsD4-unsplash_gpy7j8.jpg" alt="Header Image" /> 
       <div className="header-text">
-        <h4>Welcome to My Landing Page</h4>
-        <p>Some text goes here</p>
-        <p> There is supposed to be a picrture here as a background</p>
+        <h4>Welcome to Medvice</h4>
+        <p>Have you ever lost track of the medicine you bought?</p>
+        <p> Medvice keeps tracks of all of your medications. </p>
       </div>
     </div>
     
@@ -27,7 +27,7 @@ function LandingPage() {
         <img src="https://via.placeholder.com/500x500.png" alt="placeholder" className="landing-page-image" />
       </div>
       <div className="landing-page-text-container">
-        <h4 className="landing-page-title">Title of the content</h4>
+        <h4 className="landing-page-title"> Title of the content</h4>
         <p className="landing-page-text">Text that goes below the title</p>
       </div>
     </div>
