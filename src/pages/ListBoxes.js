@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllBoxes } from "../api";
+import { deleteBox, getAllBoxes } from "../api";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -14,11 +14,23 @@ function ListBoxes() {
     navigate(path);
   }
 
+  async function handleGetAllBoxes() {
+    const response = await getAllBoxes();
+    setBox(response.data);
+  }
+
+  /* const deleteBox = (boxId) =>{
+    let path = `/medication/${boxId}`
+    navigate(path);
+  } */
+
+  const handleDeleteBox = async (boxId) => {
+    await deleteBox(boxId)
+    await handleGetAllBoxes();
+
+  }
+
   useEffect(() => {
-    async function handleGetAllBoxes() {
-      const response = await getAllBoxes();
-      setBox(response.data);
-    }
     handleGetAllBoxes();
   }, []);
 
@@ -33,7 +45,28 @@ function ListBoxes() {
       <br></br>
       <br></br>
 
-      <h4>Our suggestions to keep in stock:</h4>
+  <div style={{display: 'flex', justifyContent: 'center'}}>
+  <div style={{width: '30%'}}>
+    <h5 style={{textAlign: 'center'}}>Search your medicine here</h5>
+    <br></br>
+    <Form className="d-flex">
+      <Form.Control
+        type="search"
+        placeholder="Search"
+        className="me-2"
+        aria-label="Search"
+      />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </div>
+</div>
+
+
+      <br></br>
+      <br></br>
+
+
+      <h4>Our suggestions to keep in stock</h4>
 
       <br></br>
       <br></br>
@@ -42,49 +75,49 @@ function ListBoxes() {
         <div className="row justify-content-center">
           <div className="col-md-3 mb-4">
             <Card className="h-100">
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img variant="top" src="https://via.placeholder.com/500x500.png" />
               <Card.Body>
                 <Card.Title>Card title</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" onClick={seeDetails}>Go somewhere</Button>
               </Card.Body>
             </Card>
           </div>
           <div className="col-md-3 mb-4">
             <Card className="h-100">
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src="https://via.placeholder.com/500x500.png" />
               <Card.Body>
                 <Card.Title>Card title</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" onClick={seeDetails}>Go somewhere</Button>
               </Card.Body>
             </Card>
           </div>
           <div className="col-md-3 mb-4">
             <Card className="h-100">
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src="https://via.placeholder.com/500x500.png" />
               <Card.Body>
                 <Card.Title>Card title</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" onClick={seeDetails}>Go somewhere</Button>
               </Card.Body>
             </Card>
           </div>
           <div className="col-md-3 mb-4">
             <Card className="h-100">
-              <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img variant="top" src="https://via.placeholder.com/500x500.png" />
               <Card.Body>
                 <Card.Title>Card title</Card.Title>
                 <Card.Text>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" onClick={seeDetails}>Go somewhere</Button>
               </Card.Body>
             </Card>
           </div>
@@ -101,26 +134,15 @@ function ListBoxes() {
       <br></br> 
       <br></br>
 
-
-      <Form className="d-flex" style={{width:"30%"}}>
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
-      </Form> 
-
     </div>
     
-  
 
   <ul style={{ listStyle: "none" }}>  
 
   <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
   {box.length > 0 ? (box.map((box) => (
     <Card style={{ width: '18rem', margin: '1rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
         <Card.Title>{box.name}</Card.Title>
         <Card.Text>
@@ -128,7 +150,9 @@ function ListBoxes() {
           Usage: {box.usage} <br />
           Expiration Date: {box.expiryDate} <br />
         </Card.Text>
-        <Button variant="primary" onClick={seeDetails} >See Details</Button>
+        <Button variant="primary" onClick={ () => {
+          handleDeleteBox(box._id)
+        } } >Delete</Button>
       </Card.Body>
     </Card>
   ))) : (<>Loading...</>)}
