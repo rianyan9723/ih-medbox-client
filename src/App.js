@@ -25,6 +25,7 @@ function App() {
           path="/medication/add"
           element={<AddBox/>}
         />
+
         <Route path="/medication/:boxID" element={<MedicationDetail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
