@@ -10,7 +10,7 @@ function LandingPage() {
     <>
 
     <div className="header">
-       <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671134695/39608_vdtwbt.jpg" alt="Header Image" /> 
+       <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671134695/39608_vdtwbt.jpg" alt="pill pic" /> 
       <div className="header-text">
         <h4>Welcome to My Landing Page</h4>
         <p>Some text goes here</p>

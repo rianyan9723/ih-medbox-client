@@ -2,7 +2,7 @@ import axios from "axios";
 const BASE_URL = `${process.env.REACT_APP_BOX_API}/api`;
 
 export const getAllBoxes = () => {
-  return axios.get(`${BASE_URL}/medvice`);
+  return axios.get(`${BASE_URL}/medication`);
 };
 
 export const getBox = (id) => {
@@ -37,8 +37,3 @@ export const verify = (token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
-
-export const searchUsage = (searchTerm) => {
-  return axios.post("/search", { searchTerm });
-}
-

@@ -11,7 +11,6 @@ import {
   MDBInput,
   MDBRow,
   MDBCol,
-  MDBCheckbox
 }
   from 'mdb-react-ui-kit';
 
