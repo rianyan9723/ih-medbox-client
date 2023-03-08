@@ -6,11 +6,14 @@ import "../signup.css";
 import {
   MDBBtn,
   MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
   MDBRow,
   MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBInput,
+  MDBIcon,
+  MDBCheckbox
 }
   from 'mdb-react-ui-kit';
 
@@ -45,55 +48,49 @@ function Signup() {
   }
 
   return (
-    <><>
-
-    </>
-
-      <MDBContainer fluid className='p-4'>
-
-        <MDBRow>
-
-          <MDBCol md='6'>
-
-            <MDBCard className='my-5'>
-              <MDBCardBody className='p-5'>
-
-                <form onSubmit={handleSubmitForm}>
-
-                  <MDBInput
-                    wrapperClass='mb-4'
-                    label='Email'
-                    id='email'
-                    type='email'
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-
-                  <MDBInput
-                    wrapperClass='mb-4'
-                    label='Password'
-                    id='password'
-                    value={password}
-                    type="password"
-                    onChange={handlePaswordChange}
-                  />
 
 
+  <MDBContainer fluid>
 
-                  <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-                </form>
+<MDBCard className='text-black m-5' style={{borderRadius: '25px'}}>
+  <MDBCardBody>
+    <MDBRow>
+      <MDBCol md='10' lg='6' className='order-2 order-lg-1 d-flex flex-column align-items-center'>
+
+        <p classNAme="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+        <br></br>
 
 
+        <div className="d-flex flex-row align-items-center mb-4">
+          <MDBIcon fas icon="envelope me-3" size='lg'/>
+          <MDBInput label='Your Email' id='form2' type='email' value = {email} onChange={handleEmailChange}/>
+        </div>
 
-              </MDBCardBody>
-            </MDBCard>
+        <div className="d-flex flex-row align-items-center mb-4">
+          <MDBIcon fas icon="lock me-3" size='lg'/>
+          <MDBInput label='Password' id='form3' type='password' value = {password} onChange={handlePaswordChange}/>
+        </div>
 
-          </MDBCol>
 
-        </MDBRow>
+        <div className='mb-4'>
+          <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
+        </div>
+        <form onSubmit={handleSubmitForm}>
+        <MDBBtn className='mb-4' size='lg'>Register</MDBBtn>
+        </form>
 
-      </MDBContainer>
-    </>
+      </MDBCol>
+
+      <MDBCol md='10' lg='6' className='order-1 order-lg-2 d-flex align-items-center'>
+        <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp' fluid/>
+      </MDBCol>
+
+    </MDBRow>
+  </MDBCardBody>
+</MDBCard>
+
+</MDBContainer>
 
 
   );
