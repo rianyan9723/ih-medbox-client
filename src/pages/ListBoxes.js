@@ -110,7 +110,7 @@ function ListBoxes() {
 
   <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly" }}>
   {box.map((box) => (
-    <Card style={{ width: '18rem', margin: '1rem' }}>
+    <Card style={{ width: '18rem', margin: '1rem' }} >
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
         <Card.Title>{box.name}</Card.Title>

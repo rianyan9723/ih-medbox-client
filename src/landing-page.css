@@ -21,19 +21,19 @@
   .header-text {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 25%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: gray;
+    text-align: left;
+    color: white;
   }
   
   .header-text h1 {
-    font-size: 3em;
+    font-size: 6em;
     margin: 0;
   }
   
   .header-text p {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-top: 10px;
   }
 
