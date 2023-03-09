@@ -11,7 +11,7 @@ function UserProviderWrapper({ children }) {
     if (storedToken) {
       try {
         const response = await verify(storedToken);
-        console.log(response)
+        // console.log(responsse)
 
         setLoggedUser(response.data);
       } catch (e) {
