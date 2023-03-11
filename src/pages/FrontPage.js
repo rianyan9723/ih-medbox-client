@@ -26,7 +26,7 @@ function FrontPage() {
           <Button variant="danger" onClick={joinNow}>Sign Up for Free</Button>
         </div>
       </div>
-      <div className="front-page-container" style={{ backgroundColor: "#ed393f", margin: "0% 0%", fontFamily: "Poppins" }}>
+      <div className="front-page-container" style={{ margin: "0% 0%", fontFamily: "Poppins" }}>
         <div className="front-page-text-container" style={{ justifyContent: 'center', width: '75rem' }}>
           <br />
           <br />
