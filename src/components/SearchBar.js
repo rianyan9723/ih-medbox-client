@@ -5,10 +5,9 @@ import Card from 'react-bootstrap/Card';
 import { toast } from "react-toastify";
 
 
-function SearchBar() {
+function SearchBar(props) {
   const [searchQuery, setSearchQuery] = useState("");
   const [meds, setMeds] = useState([]);
-  const [selectedResults, setSelectedResult] = useState({});
 
   useEffect(() => {
     // Define a function to call your API endpoint and set the results
@@ -37,26 +36,33 @@ function SearchBar() {
     setSearchQuery(event.target.searchInput.value);
   };
 
-  const handleButtonClick = (medData) => {
-    setSelectedResult(medData);
-  }
-
-  // const formatTitle = ()
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="searchInput" />
-        <Button type="submit" variant="warning" size="sm" style={{ marginLeft: "5px" }}>Find</Button>
+        <Card style={{ width: "95%" }}>
+          <Card.Header style={{ fontFamily: "Poppins", fontWeight: "bold" }}>Search Medication 🔎 💊 😵</Card.Header>
+          <Card.Body>
+            <Card.Title>
+              <h6 style={{ fontFamily: "Open Sans" }}>Find medication by active ingredient or purpose</h6>
+            </Card.Title>
+            <Card.Text >
+              <input type="text" name="searchInput" style={{width: "50%"}}/>
+              <Button type="submit" variant="warning" size="sm" style={{ marginLeft: "5px", fontFamily: "Poppins", color: "white", fontWeight: "bold" }}>Find</Button>
+              <br />
+              <p style={{ fontFamily: "Open Sans", fontSize: "13px" }}>Example: Paracetamol or Pain Reliever</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </form>
       <br />
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "3%" }}>
         {meds &&
           meds.map(({ active_ingredient, purpose, indications_and_usage, dosage_and_administration, storage_and_handling }) => (
             active_ingredient && purpose &&
             <Card className='meds-list' key={meds} style={{ width: "35%", marginLeft: "5%", marginRight: "5%" }}>
-              <Card.Header as="h5">{active_ingredient}</Card.Header>
-              <Card.Body>
-                <Card.Text>{purpose}</Card.Text>
+              <Card.Header as="h4" style={{ fontFamily: "Poppins", fontWeight: "bold" }}>{active_ingredient}</Card.Header>
+              <Card.Body style={{ fontFamily: "Open Sans" }}>
+                <Card.Text as="h5">{purpose}</Card.Text>
                 <Card.Text>
                   {indications_and_usage}
                 </Card.Text>
@@ -66,7 +72,7 @@ function SearchBar() {
                 <Card.Text>
                   {storage_and_handling}
                 </Card.Text>
-                <Button variant="warning" onClick={() => handleButtonClick({ active_ingredient, purpose, indications_and_usage, dosage_and_administration, storage_and_handling })}>Fill form with this medication</Button>
+                <Button style={{ fontFamily: "Poppins", color: "white", fontWeight: "bold" }} variant="warning" onClick={() => props.handleGetMedData(active_ingredient, purpose, indications_and_usage, dosage_and_administration, storage_and_handling)}>Fill in this med data</Button>
               </Card.Body>
             </Card>
           ))}

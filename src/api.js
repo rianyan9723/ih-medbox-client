@@ -13,6 +13,12 @@ export const deleteBox = (id) => {
   return axios.delete(`${BASE_URL}/medication/${id}`);
 };
 
+export const updateBox = (id, updatedBox) => {
+  return axios.put(`${BASE_URL}/medication/${id}`, updatedBox, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
+  });
+};
+
 export const createBox = (box) => {
   return axios.post(`${BASE_URL}/medication/add`, box, {
     headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
@@ -32,7 +38,6 @@ export const signup = (user) => {
 };
 
 export const verify = (token) => {
-  console.log(token)
   return axios.get(`${BASE_URL}/verify`, {
     headers: { Authorization: `Bearer ${token}` },
   });

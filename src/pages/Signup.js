@@ -37,7 +37,7 @@ function Signup() {
         setPassword("");
         setEmail("");
       } else {
-        toast.success("User created");
+        toast.success("Thanks for creating an account with us ❤");
         navigate("/");
       }
     } catch (e) {

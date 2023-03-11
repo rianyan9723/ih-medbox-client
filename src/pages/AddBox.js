@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { createBox } from "../api";
 import { toast } from "react-toastify";
 import { Button, Form } from "react-bootstrap";
-import axios from "axios";
 import SearchBar from "../components/SearchBar";
 
 
@@ -12,6 +11,7 @@ function AddBox() {
   const [quantity, setQuantity] = useState(0);
   const [purpose, setPurpose] = useState("");
   const [usage, setUsage] = useState("");
+  const [dosage, setDosage] = useState("");
   const [expiryDate, setExpiryDate] = useState('');
   const [otherInfo, setOtherInfo] = useState('');
   const navigate = useNavigate();
@@ -32,6 +32,10 @@ function AddBox() {
     setUsage(event.target.value);
   }
 
+  function handleDosageChange(event) {
+    setDosage(event.target.value);
+  }
+
   function handleExpiryDateChange(event) {
     setExpiryDate(event.target.value);
   }
@@ -41,81 +45,114 @@ function AddBox() {
   }
   async function handleSubmitForm(event) {
     event.preventDefault();
-    await createBox({
-      name,
-      quantity,
-      purpose,
-      usage,
-      expiryDate,
-      otherInfo
-    });
 
-    toast.success("New box created!");
-    navigate("/medication");
+    // Check if all required keys have values
+    if (name && quantity && purpose && usage && dosage && expiryDate) {
+      await createBox({
+        name,
+        quantity,
+        purpose,
+        usage,
+        dosage,
+        expiryDate,
+        otherInfo
+      });
+      toast.success("New box created!");
+      navigate("/medication");
+    } else {
+      // Handle error when required keys are missing
+      toast.error("Please fill in all required fields.");
+    }
   }
 
+
+  function getMedData(active_ingredient, purpose, indications_and_usage, dosage_and_administration, storage_and_handling) {
+    setName(active_ingredient.toString())
+    setPurpose(purpose.toString());
+    setUsage(indications_and_usage.toString());
+    setDosage(dosage_and_administration.toString());
+    setOtherInfo(storage_and_handling.toString());
+  }
   return (
     <>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", margin: "2% 5%" }}>
         <div style={{ width: "70%" }}>
           <br />
-          <h6 style={{ fontFamily: "Poppins" }}>Find medication by active ingredient or purpose:</h6>
-          <p style={{ fontFamily: "Open Sans", fontSize: "13px" }}>Example: Paracetamol or Pain Reliever</p>
-          <SearchBar />
+          <SearchBar handleGetMedData={getMedData} />
         </div>
-        <div style={{ fontFamily: "Poppins", width: "25%", marginRight: "5%" }}>
+        <div style={{ fontFamily: "Poppins", width: "25%", marginBottom: "5%" }}>
           <br />
-          <h6>Or create your own!</h6>
-          <Form onSubmit={handleSubmitForm}>
-            <Form.Group controlId="name">
-              <Form.Label>Active Ingredient / Name</Form.Label>
+          <p>Register your medication</p>
+          <Form onSubmit={handleSubmitForm} style={{ textAlign: "left" }}>
+            <Form.Group controlId="name.name">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Name / Active Ingredient *</Form.Label>
               <Form.Control
-                type="name"
                 value={name}
                 onChange={handleNameChange}
               />
             </Form.Group>
-            <Form.Group controlId="quantity">
-              <Form.Label>Quantity</Form.Label>
+            <br />
+            <Form.Group controlId="quantity.quantity">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Quantity *</Form.Label>
               <Form.Control
-                type="number"
                 value={quantity}
                 onChange={handleQuantityChange}
               />
             </Form.Group>
-            <Form.Group controlId="purpose">
-              <Form.Label>Purpose</Form.Label>
+            <br />
+            <Form.Group controlId="purpose.purpose">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Purpose *</Form.Label>
               <Form.Control
-                type="purpose"
+                as="textarea"
                 value={purpose}
                 onChange={handlePurposeChange}
               />
             </Form.Group>
-            <Form.Group controlId="usage">
-              <Form.Label>Usage</Form.Label>
+            <br />
+            <Form.Group controlId="usage.usage">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Usage *</Form.Label>
               <Form.Control
-                type="usage"
+                as="textarea"
+                rows={5}
                 value={usage}
                 onChange={handleUsageChange}
               />
             </Form.Group>
-            <Form.Group controlId="expiryDate">
-              <Form.Label>Expiry Date</Form.Label>
+            <br />
+            <Form.Group controlId="dosage.dosage">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Dosage *</Form.Label>
               <Form.Control
-                type="expiryDate"
+                as="textarea"
+                rows={4}
+                value={dosage}
+                onChange={handleDosageChange}
+              />
+            </Form.Group>
+            <br />
+            <Form.Group controlId="expiryDate.expiryDate">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Expiry Date *</Form.Label>
+              <Form.Control
                 value={expiryDate}
                 onChange={handleExpiryDateChange}
               />
             </Form.Group>
-            <Form.Group controlId="otherInfo">
-              <Form.Label>Other Info</Form.Label>
+            <br />
+            <Form.Group controlId="otherInfo.otherInfo">
+              <Form.Label style={{ fontFamily: "Open Sans", fontWeight: "bold" }}>Other Info</Form.Label>
               <Form.Control
-                type="otherInfo"
+                rows={4}
                 value={otherInfo}
                 onChange={handleOtherInfoChange}
               />
             </Form.Group>
+            <Form.Text className="text-muted">
+              Fields with * are mandatory
+            </Form.Text>
+
             <br />
+            <br />
+
+
             <Button className="button" type="submit" variant="success">
               Add new medication
             </Button>

@@ -1,5 +1,5 @@
 import { UserContext } from "../context/user.context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -30,16 +30,16 @@ function NavigationBar() {
                   <Nav.Link href="/medication/add">Add new</Nav.Link>
                 </Nav>
                 <Nav className="ms-auto">
-                  <Navbar.Text style={{ marginRight: "10px" }}>Welcome {loggedUser.email}</Navbar.Text>
+                  <Navbar.Text style={{ marginRight: "10px" }}>Welcome  💊{loggedUser.email}💊</Navbar.Text>
                   <Button onClick={logout} variant="danger">Logout</Button>
                 </Nav>
               </>
             ) : (
               <>
                 <Navbar.Text>MedVice</Navbar.Text>
-                <Nav className="ms-auto">
+                <Nav className="ms-auto" style={{fontWeight:"bold"}}>
                   <Nav.Link href="/login">Login</Nav.Link>
-                  <Nav.Link href="/signup">Register</Nav.Link>
+                  <Nav.Link href="/signup" >Register</Nav.Link>
                 </Nav>
               </>
             )}

@@ -11,6 +11,7 @@ import ListBoxes from "./pages/ListBoxes";
 import MedicationDetail from "./pages/MedicationDetail";
 import FrontPage from "./pages/FrontPage";
 import CustomFont from "./components/WebFont";
+import Footer from "./components/Footer";
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
       </Routes>
+      <Footer/>
     </div>
   );
 }
