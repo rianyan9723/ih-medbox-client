@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { verify } from "../api";
 import { useNavigate } from "react-router";
-
+import { toast } from "react-toastify";
 
 const UserContext = createContext();
 
@@ -30,6 +30,8 @@ function UserProviderWrapper({ children }) {
     localStorage.removeItem("authToken");
     authenticateUser();
     navigate("/")
+    toast.success("Log out successful");
+
   }
 
   useEffect(() => {

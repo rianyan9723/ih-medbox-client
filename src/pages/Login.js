@@ -4,6 +4,7 @@ import { login } from "../api";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/user.context";
 import "../login.css";
+import { Button } from "react-bootstrap";
 
 import React from 'react';
 import {
@@ -38,7 +39,7 @@ function Login() {
     event.preventDefault();
     try {
       const response = await login({ email, password });
-        console.log("response", response);
+      console.log("response", response);
       localStorage.setItem("authToken", response.data);
       // "authToken" here with response.data
 
@@ -73,7 +74,7 @@ function Login() {
                   <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
                   <MDBInput
-                    wrapperClass='mb-4 mx-5 w-100'
+                    wrapperClass='mb-4 mx-5 w-70'
                     labelClass='text-white'
                     label='Email address'
                     id='email'
@@ -84,7 +85,7 @@ function Login() {
                   />
 
                   <MDBInput
-                    wrapperClass='mb-4 mx-5 w-100'
+                    wrapperClass='mb-4 mx-5 w-70'
                     labelClass='text-white'
                     label='Password'
                     id='password'
@@ -94,19 +95,11 @@ function Login() {
                     onChange={handlePasswordChange}
                   />
 
-                  <MDBBtn outline className='mx-2 px-5' color='white' size='lg' type='submit'>
-                    Login
-                  </MDBBtn>
+                  <Button type="submit" size="lg" variant="warning">Login</Button>
                 </form>
-
-
-                <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="/signup">Forgot password?
-                  <br></br>
-                  Send us an Email to recover your password</a></p>
-
+                <br />
                 <div>
                   <p className="mb-0">Don't have an account? <a href="/signup" class="text-white-50 fw-bold">Sign Up</a></p>
-
                 </div>
               </MDBCardBody>
             </MDBCard>

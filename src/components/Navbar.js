@@ -37,8 +37,8 @@ function NavigationBar() {
               </>
             ) : (
               <>
-                <Navbar.Text>MedVice</Navbar.Text>
-                <Nav className="ms-auto" style={{fontWeight:"bold"}}>
+                <Nav.Link href="/"><Navbar.Text>MedVice</Navbar.Text></Nav.Link>
+                <Nav className="ms-auto" style={{ fontWeight: "bold" }}>
                   <Nav.Link href="/login">Login</Nav.Link>
                   <Nav.Link href="/signup" >Register</Nav.Link>
                 </Nav>
