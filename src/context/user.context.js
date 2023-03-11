@@ -1,10 +1,14 @@
 import { createContext, useEffect, useState } from "react";
 import { verify } from "../api";
+import { useNavigate } from "react-router";
+
 
 const UserContext = createContext();
 
 function UserProviderWrapper({ children }) {
   const [loggedUser, setLoggedUser] = useState(null);
+  const navigate = useNavigate();
+
 
   async function authenticateUser() {
     const storedToken = localStorage.getItem("authToken");
@@ -25,6 +29,7 @@ function UserProviderWrapper({ children }) {
   function logout() {
     localStorage.removeItem("authToken");
     authenticateUser();
+    navigate("/")
   }
 
   useEffect(() => {

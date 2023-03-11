@@ -46,6 +46,9 @@ function BoxDetail() {
   function handleOtherInfoChange(event) {
     setOtherInfo(event.target.value);
   }
+  const goBack = () => {
+    navigate("/medication")
+  }
 
   useEffect(() => {
     async function handleGetBoxDetail() {
@@ -192,8 +195,9 @@ function BoxDetail() {
                     <p>Expires: {box.expiryDate}</p>
                     <p>{box.otherInfo}</p>
                   </Card.Text>
-                  <Button type="button" size="lg" varient="warning" onClick={() => { handleEditBox(box._id) }} style={{ marginLeft: "1%", fontFamily: "Poppins", color: "white" }}>Edit</Button>
-                  <Button type="submit" size="lg" variant="danger" onClick={() => { handleDeleteBox(box._id) }} style={{ marginLeft: "1%", fontFamily: "Poppins", color: "white" }}>Delete</Button>
+                  <Button type="button" varient="warning" onClick={() => { handleEditBox(box._id) }} style={{ marginLeft: "1%", fontFamily: "Poppins", color: "white" }}>Edit</Button>
+                  <Button type="submit" variant="danger" onClick={() => { handleDeleteBox(box._id) }} style={{ marginLeft: "1%", fontFamily: "Poppins", color: "white" }}>Delete</Button>
+                  <Button type="submit" variant="success" onClick={goBack} style={{ marginLeft: "1%", fontFamily: "Poppins", color: "white" }}>Go back to My Area</Button>
                 </Card.Body>
               </Card>
             </div>
