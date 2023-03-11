@@ -4,6 +4,7 @@ import { createBox } from "../api";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 import { searchUsage } from "../api";
+
 //import Autocomplete from "react-autocomplete";
 
 
@@ -131,6 +132,8 @@ function AddBox() {
         Create new box
       </Button>
     </form>
+
+
   );
 }
 // <label htmlFor="image">Image</label>
