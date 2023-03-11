@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../api";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/user.context";
-import "../login.css"; 
+import "../login.css";
 
 import React from 'react';
 import {
@@ -15,7 +15,7 @@ import {
   MDBCardBody,
   MDBInput,
 }
-from 'mdb-react-ui-kit';
+  from 'mdb-react-ui-kit';
 
 
 
@@ -38,8 +38,7 @@ function Login() {
     event.preventDefault();
     try {
       const response = await login({ email, password });
-      debugger
-      console.log("response", response);
+        console.log("response", response);
       localStorage.setItem("authToken", response.data);
       // "authToken" here with response.data
 
@@ -57,65 +56,65 @@ function Login() {
 
 
     <>
-    
 
-<MDBContainer fluid>
 
-<MDBRow className='d-flex justify-content-center align-items-center h-100'>
-  <MDBCol col='12'>
+      <MDBContainer fluid>
 
-    <MDBCard className='bg-dark text-white my-5 mx-auto' 
-    style={{borderRadius: '1rem', maxWidth: '400px'}}
-    >
-      <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
+        <MDBRow className='d-flex justify-content-center align-items-center h-100'>
+          <MDBCol col='12'>
 
-        <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-        <p className="text-white-50 mb-5">Please enter your login and password!</p>
+            <MDBCard className='bg-dark text-white my-5 mx-auto'
+              style={{ borderRadius: '1rem', maxWidth: '400px' }}
+            >
+              <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
+                <form onSubmit={handleSubmitForm}>
 
-        <MDBInput 
-        wrapperClass='mb-4 mx-5 w-100' 
-        labelClass='text-white' 
-        label='Email address' 
-        id='email' 
-        type='email' 
-        size="lg"
-        value={email}
-        onChange={handleEmailChange}
-        />
+                  <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                  <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
-        <MDBInput 
-        wrapperClass='mb-4 mx-5 w-100' 
-        labelClass='text-white' 
-        label='Password' 
-        id='password' 
-        type='password' 
-        size="lg"
-        value={password}
-        onChange={handlePasswordChange}
-        />
+                  <MDBInput
+                    wrapperClass='mb-4 mx-5 w-100'
+                    labelClass='text-white'
+                    label='Email address'
+                    id='email'
+                    type='email'
+                    size="lg"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
 
-<form onSubmit={handleSubmitForm}>
-  <MDBBtn outline className='mx-2 px-5' color='white' size='lg' type='submit'>
-    Login
-  </MDBBtn>
-</form>
-       
+                  <MDBInput
+                    wrapperClass='mb-4 mx-5 w-100'
+                    labelClass='text-white'
+                    label='Password'
+                    id='password'
+                    type='password'
+                    size="lg"
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
 
-        <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="/signup">Forgot password?
-        <br></br>
-        Send us an Email to recover your password</a></p>
+                  <MDBBtn outline className='mx-2 px-5' color='white' size='lg' type='submit'>
+                    Login
+                  </MDBBtn>
+                </form>
 
-        <div>
-          <p className="mb-0">Don't have an account? <a href="/signup" class="text-white-50 fw-bold">Sign Up</a></p>
 
-        </div>
-      </MDBCardBody>
-    </MDBCard>
+                <p className="small mb-3 pb-lg-2"><a class="text-white-50" href="/signup">Forgot password?
+                  <br></br>
+                  Send us an Email to recover your password</a></p>
 
-  </MDBCol>
-</MDBRow>
+                <div>
+                  <p className="mb-0">Don't have an account? <a href="/signup" class="text-white-50 fw-bold">Sign Up</a></p>
 
-</MDBContainer>
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+
+          </MDBCol>
+        </MDBRow>
+
+      </MDBContainer>
 
 
 

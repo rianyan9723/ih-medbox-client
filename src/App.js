@@ -9,7 +9,9 @@ import Login from "./pages/Login";
 import AddBox from "./pages/AddBox";
 import ListBoxes from "./pages/ListBoxes";
 import MedicationDetail from "./pages/MedicationDetail";
-import LandingPage from "./pages/LandingPage";
+import FrontPage from "./pages/FrontPage";
+import CustomFont from "./components/WebFont";
+import Footer from "./components/Footer";
 
 
 
@@ -18,8 +20,9 @@ function App() {
     <div className="App">
       <ToastContainer />
       <Navbar1 />
+      <CustomFont />
       <Routes>
-        <Route path="/" element={<LandingPage/>} />
+        <Route path="/" element={<FrontPage/>} />
         <Route path="/medication" element={<ListBoxes/>} />
         <Route
           path="/medication/add"
@@ -31,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
       </Routes>
+      <Footer/>
     </div>
   );
 }
